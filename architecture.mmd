@@ -1,0 +1,23 @@
+flowchart LR
+    SCHED[OCI scheduled invoke\nor manual trigger] -- detached --> FN[POD Merge Function\nOCI Functions]
+    FN -- self-invoke next batch\nwhen backlog remains --> FN
+
+    FN -- REST: POD documents\nupdated since watermark --> OTM[(Oracle Transportation\nManagement)]
+    OTM -- shipment / order release\ncustomer lookup --> FN
+    OTM -- binary download\nPDF, JPG, PNG, TIFF --> FN
+
+    FN --> VAL{Validate}
+    VAL -- owner type out of scope --> OOS[Counted, not merged]
+    VAL -- 403 / 404 / unreadable --> SKIP[reports/skipped\nwith plain-language reason]
+    VAL -- valid --> CONV[Convert images to PDF\nmerge per customer per day]
+
+    CONV --> OS[(OCI Object Storage)]
+    OS --- SRC[source/ originals]
+    OS --- MRG[merged/ one PDF per customer per day]
+    OS --- MAN[manifests/ + links/ index]
+    OS --- ST[state/ watermark, lock, Drive queue]
+    OS --- REP[reports/ run summaries]
+
+    FN -- upload or replace in place --> GD[Google Drive\nShared Drive, folder per customer]
+    GD -- shareable link --> CUST[Operations team\nsends link to customer]
+    FN --> LOG[OCI Logging]

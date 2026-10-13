@@ -1,0 +1,32 @@
+{
+  "date": "2026-01-05",
+  "customers": {
+    "C1001": {
+      "customer_name": "Customer A",
+      "merged_object": "POD_Doc_Merge/merged/C1001/C1001_POD_2026-01-05.pdf",
+      "documents": 3,
+      "pages": 4,
+      "latest_update": "2026-01-05T16:00:00Z",
+      "drive_link": "https://drive.example.invalid/file/d/file001/view",
+      "drive_name": "C1001_POD_2026-01-05_160000.pdf"
+    },
+    "C1002": {
+      "customer_name": "Customer B",
+      "merged_object": "POD_Doc_Merge/merged/C1002/C1002_POD_2026-01-05.pdf",
+      "documents": 2,
+      "pages": 5,
+      "latest_update": "2026-01-05T17:00:00Z",
+      "drive_link": "https://drive.example.invalid/file/d/file002/view",
+      "drive_name": "C1002_POD_2026-01-05_170000.pdf"
+    },
+    "C1003": {
+      "customer_name": "Customer C",
+      "merged_object": "POD_Doc_Merge/merged/C1003/C1003_POD_2026-01-05.pdf",
+      "documents": 2,
+      "pages": 1,
+      "latest_update": "2026-01-05T12:00:00Z",
+      "drive_link": "https://drive.example.invalid/file/d/file003/view",
+      "drive_name": "C1003_POD_2026-01-05_120000.pdf"
+    }
+  }
+}

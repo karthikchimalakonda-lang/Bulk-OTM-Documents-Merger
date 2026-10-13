@@ -1,0 +1,11 @@
+# Reference only - we build with `docker build` and deploy with `oci fn function create/update`
+# (deploy/deploy.ps1), not the Fn CLI. Keep in sync with the Dockerfile.
+schema_version: 20180708
+name: otm-pod-merge
+version: 0.1.0
+runtime: python
+build_image: container-registry.oracle.com/oci_functions/python:3.12-dev
+run_image: container-registry.oracle.com/oci_functions/python:3.12
+entrypoint: /python/bin/fdk /function/func.py handler
+memory: 2048
+timeout: 300

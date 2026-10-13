@@ -1,0 +1,41 @@
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+.config
+*.pem
+*.key
+*.p12
+*.pfx
+config
+oci_config
+client_secret*.json
+service-account*.json
+gdrive_credentials*.json
+*-drive-*.json
+state.json
+out.json
+
+# Real POD documents and outputs - only synthetic demo PDFs are allowed
+*.pdf
+*.tif
+*.tiff
+*.jpg
+*.jpeg
+!evidence/demo-output/*.pdf
+output/
+backup/
+*.docx
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
